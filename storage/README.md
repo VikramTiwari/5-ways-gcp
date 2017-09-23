@@ -1,10 +1,5 @@
 # Static website on Google Storage
 
-## Requirements
-
-- A domain that you own and verified with Google Webmasters
-- An active project on gcp with billing enabled
-
 ## Deploy
 
 - Create a `CNAME` record which points to `c.storage.googleapis.com` with your subdomain as host
