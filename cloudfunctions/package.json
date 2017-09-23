@@ -1,0 +1,16 @@
+{
+  "name": "geo-from-ip-cf-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "curl -X GET https://us-central1-happydemogods.cloudfunctions.net/geofromip",
+    "deploy": "gcloud alpha functions deploy geofromip --stage-bucket happydemogods-cf --trigger-http"
+  },
+  "author": "Vikram Tiwari <vikramtheone1@gmail.com> (http://vikramtiwari.com)",
+  "license": "ISC",
+  "dependencies": {
+    "geo-from-ip": "^1.1.1",
+    "@google/cloud-debug": "^0.9.0"
+  }
+}
