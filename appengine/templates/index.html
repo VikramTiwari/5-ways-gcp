@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,12 +7,34 @@
 </head>
 
 <body>
-  From App Engine Standard (with SSL?)
+  From App Engine Standard with reoccuring SSL on custom domain
+  <br>
+  <br>
+  <div>Cloud Functions</div>
+  <div>Geo Info from IP</div>
+  <div id="locationInfo"></div>
+  <br>
+  <div>Raw json</div>
   <div id="ipInfo"></div>
 </body>
 
 <script>
   // make api request to cloud functions to get IPdata and show it in the UI
+  function httpGET(url) {
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.open("GET", url, false) // keep it sync
+    xmlHttp.send(null)
+    return xmlHttp.responseText
+  }
+
+  var ipInfo = JSON.parse(httpGET("https://us-central1-happydemogods.cloudfunctions.net/geofromip"))
+  var ipInfoDiv = document.createElement("div")
+  ipInfoDiv.innerHTML = JSON.stringify(ipInfo)
+  document.getElementById("ipInfo").appendChild(ipInfoDiv);
+
+  var locationInfoDiv = document.createElement("div")
+  locationInfoDiv.innerHTML = ipInfo.city + ',' + ipInfo.state + ',' + ipInfo.postal
+  document.getElementById("locationInfo").appendChild(locationInfoDiv);
 
 </script>
 

@@ -12,5 +12,6 @@ require('@google/cloud-debug').start()
  * @param {Object} res Cloud Function response context.
  */
 exports.geofromip = function geofromip (req, res) {
+  res.set('Access-Control-Allow-Origin', 'https://happydemogods.vikramtiwari.com')
   res.send(geoip.allData(req.ip))
 }
