@@ -21,6 +21,7 @@ gcloud container clusters get-credentials --zone=us-central1-b cloud
 
 ``` bash
 helm init
+helm repo update
 helm install stable/mysql
 ```
 
@@ -48,4 +49,11 @@ kubectl get ingress --namespace microservice echoserver
 ``` bash
 kubectl proxy
 # Open localhost:8001/ui
+```
+
+## Cleanup
+
+``` bash
+# delete load balancer and static ips
+gcloud container clusters delete --zone=us-central1-b cloud
 ```
